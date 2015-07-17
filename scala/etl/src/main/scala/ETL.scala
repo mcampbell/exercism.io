@@ -21,9 +21,7 @@ object ETL {
 
   def transform(old: Map[Int, Seq[String]]) = {
     old flatMap { case (k, v) => {
-      (v map { s =>
-        (s.toLowerCase(), k)
-      }).toMap
+      v map { s => (s.toLowerCase() -> k) }
     }
     }
   }
