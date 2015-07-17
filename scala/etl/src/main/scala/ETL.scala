@@ -20,13 +20,11 @@ object ETL {
    */
 
   def transform(old: Map[Int, Seq[String]]) = {
-    (old map { case (k, v) => {
+    old flatMap { case (k, v) => {
       (v map { s =>
         (s.toLowerCase(), k)
       }).toMap
     }
-    }).flatten.toMap
+    }
   }
-
-
 }
